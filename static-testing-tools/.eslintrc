@@ -1,0 +1,31 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module", // vs. scripts
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint/eslint-plugin"],
+  // pre-configured configurations
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "eslint-config-prettier",
+    "eslint-config-prettier/@typescript-eslint"
+  ],
+  // overwrite above configurations
+  "rules": {
+    "strict": ["error", "never"]
+  },
+  "env": {
+    "browser": true // prevents 'console is not defined' error
+  }
+}
+
+// NOTE: the ESLint extension will underline errors throughout the code with red
+// use Command Period to deal with errors
+// LOOKUP 'npx eslint . --fix' (auto-fix)
