@@ -26,6 +26,7 @@ const userBuilder = build('User').fields({
   id: sequence(s => `user-${s}`),
 })
 
+// reduces duplication b/w our two tests
 function renderEditor() {
   const fakeUser = userBuilder()
   const utils = render(<Editor user={fakeUser} />)
@@ -36,7 +37,7 @@ function renderEditor() {
   utils.getByLabelText(/tags/i).value = fakePost.tags.join(', ')
   const submitButton = utils.getByText(/submit/i)
   return {
-    ...utils,
+    ...utils, // exposes access to findByRole, getByText, etc.
     submitButton,
     fakeUser,
     fakePost,

@@ -40,5 +40,7 @@ test('renders a form with title, content, tags, and a submit button', async () =
   })
   expect(mockSavePost).toHaveBeenCalledTimes(1)
 
+  // need await bc in the code, Redirect is called asynchronously
+  // this tells the test to wait until no error is thrown or it times out
   await wait(() => expect(MockRedirect).toHaveBeenCalledWith({to: '/'}, {}))
 })

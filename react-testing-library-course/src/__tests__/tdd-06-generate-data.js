@@ -16,6 +16,7 @@ afterEach(() => {
   jest.clearAllMocks()
 })
 
+// use fake data to communicate that it doesn't really matter what these values are
 const postBuilder = build('Post').fields({
   title: fake(f => f.lorem.words()),
   content: fake(f => f.lorem.paragraphs().replace(/\r/g, '')),
@@ -31,6 +32,7 @@ test('renders a form with title, content, tags, and a submit button', async () =
   const fakeUser = userBuilder()
   const {getByLabelText, getByText} = render(<Editor user={fakeUser} />)
   const fakePost = postBuilder()
+  // could do: fakePost = postBuilder({content: 'something special'}) to overwrite the fake data
   const preDate = new Date().getTime()
 
   getByLabelText(/title/i).value = fakePost.title

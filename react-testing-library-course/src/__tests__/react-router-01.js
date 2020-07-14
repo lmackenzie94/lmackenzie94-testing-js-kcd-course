@@ -7,6 +7,7 @@ import {Main} from '../main'
 test('main renders about and home and I can navigate to those pages', () => {
   const history = createMemoryHistory({initialEntries: ['/']})
   const {getByRole, getByText} = render(
+    // NOTE: since Main requires context (i.e. Router), we must wrap it when testing:
     <Router history={history}>
       <Main />
     </Router>,

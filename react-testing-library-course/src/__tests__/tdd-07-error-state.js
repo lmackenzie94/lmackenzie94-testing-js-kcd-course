@@ -64,6 +64,8 @@ test('renders an error message from the server', async () => {
   const {getByText, findByRole} = render(<Editor user={fakeUser} />)
   const submitButton = getByText(/submit/i)
 
+  // NOTE: form doesn't actually have to be filled out for this test
+
   fireEvent.click(submitButton)
 
   const postError = await findByRole('alert')
