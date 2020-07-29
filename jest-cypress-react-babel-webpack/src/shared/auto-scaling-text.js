@@ -2,12 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './auto-scaling-text.module.css'
 
-console.log(styles) // should be '{ hello: 'world' }' in Jest test environment (see style-mock.js)
-
 function getScale(node) {
-  debugger // for this to work in a testing env (i.e. non-browser), run 'yarn test:debug' (see package.json)
-  // then, go to 'chrome://inspect' > click 'inspect' > press the play button
-  // OR open dev tools and click the Node button
   if (!node) {
     return 1
   }

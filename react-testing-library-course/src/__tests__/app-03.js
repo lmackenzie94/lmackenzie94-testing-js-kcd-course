@@ -6,6 +6,7 @@ import App from '../app-reach-router'
 
 jest.mock('../api')
 
+// using 'user' instead of 'fireEvent' makes our tests cleaner/easier to read
 test('Can fill out a form across multiple pages', async () => {
   mockSubmitForm.mockResolvedValueOnce({success: true})
   const testData = {food: 'test food', drink: 'test drink'}
